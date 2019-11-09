@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import users from "../../mocks/users.js";
 import messages from "../../mocks/messages.js";
 import Threads from "./Threads.js";
-import Chat from "./Chat.js";
+import Chat from "./Chat";
 
 const filterMessageByUsername = ({ username } = {}) => message =>
   message.from === username || message.to === username;
