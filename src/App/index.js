@@ -3,7 +3,7 @@ import Modal from "./Layout/Modal";
 import LeanJSLogo from "./Layout/LeanJSLogo";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
-import Messanger from "./Messenger";
+import Messenger from "./Messenger";
 
 class App extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class App extends Component {
           userPosition={userPosition}
           loggedUser={loggedUser}
         />
-        <Messanger />
+        <Messenger toggleModal={this.toggleModal} />
         <Footer />
       </div>
     );
