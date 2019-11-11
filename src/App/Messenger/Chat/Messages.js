@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Avatar from "../../Layout/Avatar";
+import Icon from "../../Layout/Icon";
 
-export default function Messages({messages, selectedUser}) {
+export default function Messages({ messages = [], selectedUser }) {
     const conversation = messages.map((message, i) => (
         <div
           key={i}
@@ -8,17 +10,11 @@ export default function Messages({messages, selectedUser}) {
             message.from === "you" ? "sent" : "received"
           }`}
         >
-          {message.to === "you" && (
-            <img
-              src={`images/${selectedUser.username}_lg.jpg`}
-              alt={`${selectedUser.username}`}
-              className="avatar medium"
-            />
-          )}
+          {message.to === "you" && <Avatar user={selectedUser} size="medium" />}
           <div className="message">{message.message}</div>
           {message.from === "you" && (
             <div className="message-read">
-              <i className="icon fa fa-check-circle" />
+              <Icon name="check-circle" />
             </div>
           )}
         </div>
@@ -26,7 +22,7 @@ export default function Messages({messages, selectedUser}) {
     return (
         <div className="messages">
           <div className="list">
-            {conversation || <p>You have no messages</p>}
+            {conversation.length ? conversation : <p>You have no messages</p>}
           </div>
           <div className="new-message">
             <input

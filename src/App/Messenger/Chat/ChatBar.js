@@ -1,6 +1,7 @@
 import React from 'react'
+import Icon from '../../Layout/Icon'
 
-export default function ChatBar({selectedUser}) {
+export default function ChatBar({ selectedUser }) {
     return (
       <div className="chat-bar">
         <h2>
@@ -8,9 +9,9 @@ export default function ChatBar({selectedUser}) {
             `${selectedUser.name.first} ${selectedUser.name.last}`}
         </h2>
         <div className="chat-menu">
-          <i className="icon fas fa-phone" />
-          <i className="icon fas fa-video" />
-          <i className="icon fas fa-info-circle" />
+          <Icon name="phone" />
+          <Icon name="video" />
+          <Icon name="info-circle" />
         </div>
       </div>
     )

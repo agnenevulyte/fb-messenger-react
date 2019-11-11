@@ -1,7 +1,9 @@
 import React from "react";
+import Avatar from "../Layout/Avatar";
+import Icon from "../Layout/Icon";
+import users from "../../mocks/users";
 
 export default function Threads({
-  users,
   selectedUser,
   selectUser,
   showSettings
@@ -11,10 +13,10 @@ export default function Threads({
       <div className="thread-bar">
         <h2>
           <a onClick={showSettings}>
-            <i className="icon fas fa-cog" />
+            <Icon name="cog" />
           </a>
           Messenger
-          <i className="icon fas fa-edit" />
+          <Icon name="edit" />
         </h2>
       </div>
       <ul className="thread-list">
@@ -26,11 +28,7 @@ export default function Threads({
             }
             onClick={() => selectUser(user)}
           >
-            <img
-              src={`images/${user.username}_lg.jpg`}
-              alt={`${user.username}`}
-              className="avatar large"
-            />
+            <Avatar user={user} size="large" />
             <div className="user-name">
               <span>{`${user.name.first} ${user.name.last}`}</span>
               <small>message preview</small>
