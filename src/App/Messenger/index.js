@@ -8,8 +8,8 @@ const filterMessageByUsername = ({ username } = {}) => message =>
   message.from === username || message.to === username;
 
 export default class Messenger extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     const selectedUser = users[0];
     this.state = {
       selectedUser: selectedUser,
@@ -25,21 +25,20 @@ export default class Messenger extends Component {
   };
 
   showSettings = () => {
-    this.toggleModal();
+    this.props.toggleModal();
   };
 
   render() {
-    const selectedUser = this.state.selectedUser;
+    const { selectedUser, messages } = this.state;
 
     return (
       <div className="messenger">
         <Threads
           selectedUser={selectedUser}
-          users={users}
           selectUser={this.selectUser}
           showSettings={this.showSettings}
         />
-        <Chat messages={this.state.messages} selectedUser={selectedUser} />
+        <Chat messages={messages} selectedUser={selectedUser} />
       </div>
     );
   }
